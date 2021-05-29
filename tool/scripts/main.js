@@ -14,12 +14,12 @@ let mySketch = new p5(SKETCH, 'sketch');
 peerEvents.addEventListener('join', e => {
 
     peerIds.add(e.peerId);
-    window.peercount.innerHTML = `Total # of peers: ${peerIds.size}`;
+    window.peercount.innerHTML = peerIds.size;
 });
 
 peerEvents.addEventListener('leave', e => {
 
     peerIds.delete(e.peerId);
-    window.peercount.innerHTML = `Total # of peers: ${peerIds.size}`;
+    window.peercount.innerHTML = peerIds.size;
 });
 
