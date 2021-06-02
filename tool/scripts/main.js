@@ -15,11 +15,13 @@ peerEvents.addEventListener('join', e => {
 
     peerIds.add(e.peerId);
     window.peercount.innerHTML = peerIds.size;
+    window.peerSize = peerIds.size;
 });
 
 peerEvents.addEventListener('leave', e => {
 
     peerIds.delete(e.peerId);
     window.peercount.innerHTML = peerIds.size;
+    window.peerSize = peerIds.size;
 });
 

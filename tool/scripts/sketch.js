@@ -7,7 +7,7 @@ let sketch = p => {
 
     p.draw = () => {
         p.background(159, 194, 178);
-        let peer = document.getElementById('peercount').innerHTML;
+        let peer = window.peerSize;
         p.textSize(32);
         p.text(peer, p.width/2, p.height/2, 25);
     }
