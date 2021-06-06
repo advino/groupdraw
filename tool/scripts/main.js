@@ -31,6 +31,8 @@ let pen = window.pen;
 let marker = window.marker;
 let palette = window.palette;
 
+window.tool =  'None';
+
 pen.addEventListener('click', e => {
   if(window.peerSize >= 1) {
       console.log("Pen selected");
