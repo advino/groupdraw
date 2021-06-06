@@ -24,23 +24,69 @@ body {
 }
 
 .app {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     width: 500px;
     height: auto;
 }
 
+.row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+
+    width: 100%;
+    height: auto;
+}
+
+.badge {
+    width: auto;
+    height: auto;
+    padding: 2px 6px;
+    background-color: blue;
+    color: #fff;
+    border-radius: 3px;
+
+    font-size: 14px;
+    line-height: 16px;
+    text-transform: uppercase;
+}
+
+#appTitle {
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+
+    font-size: 16px;
+    line-height: 20px;
+}
+
+
 .toolbar {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    flex-direction: column !important;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 6px;
 
     flex-direction: row;
-    gap: 12px;
     width: 100%;
     height: auto;
     background-color: #e8eaed;
     padding: 18px;
-
     border-radius: 12px;
+}
+
+.tools-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
 }
 
 .tool {
@@ -50,10 +96,24 @@ body {
 
     width: 50px;
     height: 50px;
-    border: solid black 1px;
+    border-style: none;
     border-radius: 8px;
+
+    background-color: #fff;
+    color: #0e0e0f;
+
 }
 
+.active {
+    border: 1px solid black;
+}
+
+.locked {
+    background-color: #2c2c2c;
+    color: #ffffff60;
+
+}
 canvas {
     border-radius: 12px;
 }
+

@@ -31,4 +31,4 @@ let sketch = p => {
     }
 }
 
-export default sketch;
+let mySketch = new p5(sketch, 'sketch');

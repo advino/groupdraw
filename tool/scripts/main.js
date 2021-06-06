@@ -1,20 +1,31 @@
-import SKETCH from './sketch.js';
 
 let peerIds = new Set();
 let peerEvents = beaker.peersockets.watch();
 
-beaker.hyperdrive.getInfo('hyper://c90bd39d0cb8252fb43fe2d7aa13555a581c0fd22a3b5b2ea44afb63eaeb2bb9').then(info => {
+let toolbar = document.querySelector('.tools-container');
+
+beaker.hyperdrive.getInfo(window.location.href).then(info => {
 
     console.log(info);
     window.versionNum.innerHTML = info.version;
     document.title = info.title;
-    window.siteUrl.innerHTML = info.url;
+    window.appTitle.innerHTML = info.title;
+    window.siteURL.href = info.url;
 
     peerEvents.addEventListener('join', e => {
 
         peerIds.add(e.peerId);
         window.peercount.innerHTML = peerIds.size;
         window.peerSize = peerIds.size;
+
+        for(let i = 0; i < toolbar.children.length; i++) {
+            if(i < window.peerSize) {
+                console.log("tool available");
+            } else {
+                console.log("tool unavailable");
+                toolbar.children[i].classList.toggle('locked');
+            }
+        }
     });
     
     peerEvents.addEventListener('leave', e => {
@@ -22,10 +33,24 @@ beaker.hyperdrive.getInfo('hyper://c90bd39d0cb8252fb43fe2d7aa13555a581c0fd22a3b5
         peerIds.delete(e.peerId);
         window.peercount.innerHTML = peerIds.size;
         window.peerSize = peerIds.size;
-    });    
-});
 
-let mySketch = new p5(SKETCH, 'sketch');
+        for(let i = 0; i < toolbar.children.length; i++) {
+            if(i > window.peerSize) {
+                console.log("tool available");
+                toolbar.children[i].classList.toggle('locked');
+            } else {
+                console.log("tool unavailable");
+                
+            }
+        }
+    });    
+
+    if(info.peers >= 1) {
+        window.tool = "Pen";
+    } else {
+        window.tool = "None";
+    }
+});
 
 let pen = window.pen;
 let marker = window.marker;

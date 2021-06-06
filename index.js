@@ -9,7 +9,7 @@ let dir = path.join(process.cwd(), 'tool');
 mkdirp.sync(dir);
 
 let swarm = hyperswarm();
-let archive = hyperdrive('storage/');
+let archive = hyperdrive('storage_two/');
  
 
 archive.ready(() => {

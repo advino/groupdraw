@@ -12,12 +12,13 @@
 <body>
     <div>
         <div class="app">
-            <h4>Drawer</h4>
-            <p>Site Version: <span id="versionNum">null</span></p>
-            <p id="siteUrl"></p>
-            <p>
-                Total # of peers <span id="peercount"></span>
-            </p>
+            <div class="row">
+                <h4 id="appTitle">Drawer</h4>
+                <p class="badge">Version <span id="versionNum">null</span></p>
+            </div>
+            <div class="row">
+                <p><span id="peercount"></span> peers on <a id="siteURL" href="">network</a></p>
+            </div>
         </div>
 
         <div class="app">
@@ -25,24 +26,30 @@
     
             </div>
             <div class="toolbar">
-                <div class="tool" id="pen">
-                    <span class="material-icons">
-                        mode_edit
-                    </span>
-                </div>
-                <div class="tool" id="marker">
-                    <span class="material-icons">
-                        brush
-                    </span>                      
-                </div>
-                <div class="tool" id="palette">
-                    <span class="material-icons">
-                        palette
-                    </span>
+                <span>Tools</span>
+
+                <div class="tools-container">
+                    <div class="tool" id="pen">
+                        <span class="material-icons">
+                            mode_edit
+                        </span>
+                    </div>
+                    <div class="tool" id="marker">
+                        <span class="material-icons">
+                            brush
+                        </span>                      
+                    </div>
+                    <div class="tool" id="palette">
+                        <span class="material-icons">
+                            palette
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
-    <script src="./scripts/main.js" type="module"></script>
+    <script src="./scripts/main.js"></script>
+    <script src="./scripts/sketch.js"></script>
 </body>
 </html>
