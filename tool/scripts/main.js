@@ -3,6 +3,9 @@ let peerIds = new Set();
 let peerEvents = beaker.peersockets.watch();
 
 let toolbar = document.querySelector('.tools-container');
+let pen = window.pen;
+let marker = window.marker;
+let palette = window.palette;
 
 beaker.hyperdrive.getInfo(window.location.href).then(info => {
 
@@ -18,14 +21,10 @@ beaker.hyperdrive.getInfo(window.location.href).then(info => {
         window.peercount.innerHTML = peerIds.size;
         window.peerSize = peerIds.size;
 
-        for(let i = 0; i < toolbar.children.length; i++) {
-            if(i < window.peerSize) {
-                console.log("tool available");
-            } else {
-                console.log("tool unavailable");
-                toolbar.children[i].classList.toggle('locked');
-            }
+        for(let i = 0; i < window.peerSize; i++) {
+            toolbar.children[i].classList.add('unlocked');
         }
+
     });
     
     peerEvents.addEventListener('leave', e => {
@@ -34,14 +33,8 @@ beaker.hyperdrive.getInfo(window.location.href).then(info => {
         window.peercount.innerHTML = peerIds.size;
         window.peerSize = peerIds.size;
 
-        for(let i = 0; i < toolbar.children.length; i++) {
-            if(i > window.peerSize) {
-                console.log("tool available");
-                toolbar.children[i].classList.toggle('locked');
-            } else {
-                console.log("tool unavailable");
-                
-            }
+        for(let i = toolbar.children.length - 1; i >= window.peerSize; i--) {
+            toolbar.children[i].classList.remove('unlocked');
         }
     });    
 
@@ -52,9 +45,7 @@ beaker.hyperdrive.getInfo(window.location.href).then(info => {
     }
 });
 
-let pen = window.pen;
-let marker = window.marker;
-let palette = window.palette;
+
 
 window.tool =  'None';
 

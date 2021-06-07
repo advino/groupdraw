@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/inter/inter.css">
     <script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.js"></script>
     <title>Drawer</title>
 </head>
 <body>
-    <div>
-        <div class="app">
+        <div class="header">
             <div class="row">
                 <h4 id="appTitle">Drawer</h4>
                 <p class="badge">Version <span id="versionNum">null</span></p>
             </div>
             <div class="row">
-                <p><span id="peercount"></span> peers on <a id="siteURL" href="">network</a></p>
+                <p style="margin: 0;"><span id="peercount"></span> peers on <a id="siteURL" href="">the network↗</a></p>
             </div>
         </div>
 
@@ -26,7 +26,7 @@
     
             </div>
             <div class="toolbar">
-                <span>Tools</span>
+                <span style="font-size: 14px; line-height: 20px;">Tools</span>
 
                 <div class="tools-container">
                     <div class="tool" id="pen">
@@ -47,8 +47,6 @@
                 </div>
             </div>
         </div>
-
-    </div>
     <script src="./scripts/main.js"></script>
     <script src="./scripts/sketch.js"></script>
 </body>
