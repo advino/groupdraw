@@ -1,8 +1,17 @@
 let sketch = p => {
 
     p.setup = () => {
-        p.createCanvas(500,500);
-        p.background(255, 183, 82);
+
+        let parent = document.getElementById('sketchparent');
+        let w = parent.offsetWidth;
+        let h = parent.offsetHeight;
+
+
+
+        let c = p.createCanvas(w, h);
+        p.background(180);
+        
+        c.parent(parent);
     }
 
     p.draw = () => {
@@ -28,6 +37,16 @@ let sketch = p => {
                 console.log("No tool selected");
                 break;
         }
+    }
+
+    p.windowResized = () => {
+        let parent = document.getElementById('sketchparent');
+        let w = parent.offsetWidth;
+        let h = parent.offsetHeight;
+
+        p.resizeCanvas(w, h);
+        p.background(180);
+
     }
 }
 

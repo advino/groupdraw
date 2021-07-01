@@ -15,6 +15,11 @@ beaker.hyperdrive.getInfo(window.location.href).then(info => {
     window.appTitle.innerHTML = info.title;
     window.siteURL.href = info.url;
 
+    window.peerSize = info.peers;
+    for(let i = 0; i < window.peerSize; i++) {
+        toolbar.children[i].classList.add('unlocked');
+    }
+
     peerEvents.addEventListener('join', e => {
 
         peerIds.add(e.peerId);

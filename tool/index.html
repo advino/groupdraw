@@ -11,6 +11,7 @@
     <title>Drawer</title>
 </head>
 <body>
+    <div class="main">
         <div class="header">
             <div class="row">
                 <h4 id="appTitle">Drawer</h4>
@@ -19,34 +20,46 @@
             <div class="row">
                 <p style="margin: 0;"><span id="peercount"></span> peers on <a id="siteURL" href="">the network↗</a></p>
             </div>
-        </div>
 
-        <div class="app">
-            <div id="sketch">
-    
-            </div>
             <div class="toolbar">
-                <span style="font-size: 14px; line-height: 20px; color: #362304;">Tools</span>
+                <span style="font-size: 12px; line-height: 20px; color: #e8eaedde;">TOOLS</span>
 
                 <div class="tools-container">
                     <div class="tool" id="pen">
-                        <span class="material-icons">
+                        <span class="material-icons md-18">
                             mode_edit
+                        </span>
+                        <span>
+                            Pen
                         </span>
                     </div>
                     <div class="tool" id="marker">
-                        <span class="material-icons">
+                        <span class="material-icons md-18">
                             brush
+                        </span>
+                        <span>
+                            Brush
                         </span>                      
                     </div>
                     <div class="tool" id="palette">
-                        <span class="material-icons">
+                        <span class="material-icons md-18">
                             palette
+                        </span>
+                        <span>
+                            Color
                         </span>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div id="sketchparent" class="app">
+            <div id="sketch">
+    
+            </div>
+
+        </div>
+    </div>
     <script src="./scripts/main.js"></script>
     <script src="./scripts/sketch.js"></script>
 </body>
