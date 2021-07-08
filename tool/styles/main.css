@@ -33,11 +33,11 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 12px;
+    gap: 20px;
 
-    width: 20%;
+    width: 25%;
     height: 100%;
-    padding: 10px;
+    padding: 12px 18px;
 
     background-color: #0e0e0fec;
 }
@@ -47,7 +47,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 80%;
+    width: 75%;
     height: 100%;
 }
 
@@ -87,7 +87,7 @@ body {
 }
 
 
-.toolbar {
+.widget {
     display: flex;
     flex-direction: column !important;
     justify-content: flex-start;
@@ -136,8 +136,89 @@ body {
     color: #0e0e0f;
 }
 
-canvas {
 
+
+.network-status {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 8px;
+
+    width: 100%;
+    height: auto;
+    padding: 16px;
+
+    border-radius: 12px;
+
+    background-color: #2c2c2c;
+
+    color: #ffffffcb;
+    font-size: 14px;
+}
+
+
+#networkURL {
+    width: auto;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+
+.size-control {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 12px;
+    
+    width: 100%;
+    height: auto;
+
+    color: #ffffff;
+}
+
+#slider {
+    -webkit-appearance: none;
+    appearance: none;
+
+    width: 100%;
+    height: 4px;
+
+    background-color: #2c2c2c;
+    outline: none;
+
+    border-radius: 100px;
+}
+
+#slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+
+    width: 4px;
+    height: 20px;
+
+    border-radius: 100px;
+
+    background-color: #ffffffcb;
+}
+
+#sizeCount {
+    width: fit-content;
+    height: auto;
+    padding: 2px 8px;
+
+    border-radius: 100px;
+    
+    background-color: #ffffffcb;
+
+    font-size: 14px;
+    color: #000;
+
+}
+
+canvas {
+    cursor: crosshair;
 }
 
 .material-icons.md-18 { font-size: 18px; }

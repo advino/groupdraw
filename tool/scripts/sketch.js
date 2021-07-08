@@ -24,13 +24,13 @@ let sketch = p => {
             case "Pen":
                 p.fill(0, 0, 0);
                 p.ellipseMode(p.CENTER);
-                p.ellipse(p.mouseX, p.mouseY, 5, 5);
+                p.ellipse(p.mouseX, p.mouseY, window.toolSize, window.toolSize);
                 break;
         
             case "Marker":
                 p.fill(255, 97, 108);
                 p.rectMode(p.CENTER);
-                p.rect(p.mouseX, p.mouseY, 15, 15);
+                p.rect(p.mouseX, p.mouseY, window.toolSize, window.toolSize);
                 break;
                 
             default:
