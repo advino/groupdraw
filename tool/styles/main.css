@@ -132,11 +132,14 @@ body {
 }
 
 .unlocked {
-    background-color: #fff;
-    color: #0e0e0f;
+    background-color: #ffffff38;
+    color: #ffffff;
 }
 
-
+.selected {
+    background-color: #ffffff;
+    color: #0e0e0f;
+}
 
 .network-status {
 
