@@ -57,6 +57,7 @@ pen.addEventListener('click', e => {
     
         setSelection("pen"); 
     } else {
+      showSnack();  
       console.log("You need at least 1 other person on the network to access this tool");
   }
 });
@@ -69,6 +70,7 @@ marker.addEventListener('click', e => {
         setSelection("marker"); 
 
     } else {
+        showSnack();  
         console.log("You need at least 2 other people on the network to access this tool");
     }
 });
@@ -80,6 +82,7 @@ eraser.addEventListener('click', e => {
 
         setSelection("eraser");
     } else {
+        showSnack();  
         console.log("You need at least 3 other people on the network to access this tool");
     }
 });
@@ -99,4 +102,17 @@ function setSelection(target) {
             elt.classList.remove('selected');
         }
     });
+}
+
+function showSnack() {
+    let snack = document.querySelector('.snackbar');
+    snack.classList.add('snackbar-active');
+    snack.classList.remove('snackbar-passive');
+
+
+    setTimeout(() => {
+        snack.classList.remove('snackbar-active');
+        snack.classList.add('snackbar-passive');
+
+    }, 2000);
 }
