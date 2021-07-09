@@ -32,10 +32,12 @@ beaker.hyperdrive.getInfo(window.location.href).then(info => {
         window.peerCount.innerHTML = peerIds.size;
         window.peerSize = peerIds.size;
 
+
         for(let i = 0; i < window.peerSize; i++) {
             toolbar.children[i].classList.add('unlocked');
         }
 
+        showSnack('.peerjoin');
     });
     
     peerEvents.addEventListener('leave', e => {
@@ -47,6 +49,8 @@ beaker.hyperdrive.getInfo(window.location.href).then(info => {
         for(let i = toolbar.children.length - 1; i >= window.peerSize; i--) {
             toolbar.children[i].classList.remove('unlocked');
         }
+
+        showSnack('.peerleave');
     });    
 });
 
@@ -57,7 +61,7 @@ pen.addEventListener('click', e => {
     
         setSelection("pen"); 
     } else {
-      showSnack();  
+      showSnack('.alert');  
       console.log("You need at least 1 other person on the network to access this tool");
   }
 });
@@ -70,7 +74,7 @@ marker.addEventListener('click', e => {
         setSelection("marker"); 
 
     } else {
-        showSnack();  
+        showSnack('.alert');  
         console.log("You need at least 2 other people on the network to access this tool");
     }
 });
@@ -82,7 +86,7 @@ eraser.addEventListener('click', e => {
 
         setSelection("eraser");
     } else {
-        showSnack();  
+        showSnack('.alert');  
         console.log("You need at least 3 other people on the network to access this tool");
     }
 });
@@ -104,8 +108,10 @@ function setSelection(target) {
     });
 }
 
-function showSnack() {
-    let snack = document.querySelector('.snackbar');
+function showSnack(target) {
+    let snack = document.querySelector(target);
+    snack.style.display = 'flex';
+
     snack.classList.add('snackbar-active');
     snack.classList.remove('snackbar-passive');
 
@@ -113,6 +119,8 @@ function showSnack() {
     setTimeout(() => {
         snack.classList.remove('snackbar-active');
         snack.classList.add('snackbar-passive');
-
+        
+        
+        setTimeout(() => { snack.style.display = 'none'; }, 900);
     }, 2000);
 }

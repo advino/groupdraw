@@ -243,10 +243,7 @@ canvas {
 }
 
 
-.alert {
-    width: fit-content;
-    height: auto;    
-}
+
 
 
 @keyframes snack-active {
@@ -259,7 +256,22 @@ canvas {
     to {transform: translateY(20px); opacity: 0;}
 }
 
+.alert {
+    display: none;
+}
+
+.peerjoin {
+    display: none;
+}
+
+.peerleave {
+    display: none;
+}
+
+
 .snackbar {
+    width: fit-content;
+    height: auto;    
 
     padding: 12px 20px;
     margin: auto;
