@@ -32,7 +32,13 @@ let sketch = p => {
                 p.rectMode(p.CENTER);
                 p.rect(p.mouseX, p.mouseY, window.toolSize, window.toolSize);
                 break;
-                
+            
+            case "Eraser":
+                p.fill(180);
+                p.ellipseMode(p.CENTER);
+                p.ellipse(p.mouseX, p.mouseY, window.toolSize, window.toolSize);
+                break;
+                            
             default:
                 console.log("No tool selected");
                 break;
