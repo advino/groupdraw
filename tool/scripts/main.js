@@ -12,7 +12,7 @@ let sizeCount = window.sizeCount;
 
 window.toolSize = 25;
 window.tool = 'None';
-
+window.peerSize = 0;
 
 beaker.hyperdrive.getInfo(window.location.href).then(info => {
 
@@ -25,34 +25,36 @@ beaker.hyperdrive.getInfo(window.location.href).then(info => {
     for(let i = 0; i < window.peerSize; i++) {
         toolbar.children[i].classList.add('unlocked');
     }
-
-    peerEvents.addEventListener('join', e => {
-
-        peerIds.add(e.peerId);
-        window.peerCount.innerHTML = peerIds.size;
-        window.peerSize = peerIds.size;
-
-
-        for(let i = 0; i < window.peerSize; i++) {
-            toolbar.children[i].classList.add('unlocked');
-        }
-
-        showSnack('.peerjoin');
-    });
-    
-    peerEvents.addEventListener('leave', e => {
-    
-        peerIds.delete(e.peerId);
-        window.peerCount.innerHTML = peerIds.size;
-        window.peerSize = peerIds.size;
-
-        for(let i = toolbar.children.length - 1; i >= window.peerSize; i--) {
-            toolbar.children[i].classList.remove('unlocked');
-        }
-
-        showSnack('.peerleave');
-    });    
 });
+
+
+peerEvents.addEventListener('join', e => {
+
+    peerIds.add(e.peerId);
+    window.peerCount.innerHTML = peerIds.size;
+    window.peerSize = peerIds.size;
+
+
+    for(let i = 0; i < window.peerSize; i++) {
+        toolbar.children[i].classList.add('unlocked');
+    }
+
+    showSnack('.peerjoin');
+});
+
+peerEvents.addEventListener('leave', e => {
+
+    peerIds.delete(e.peerId);
+    window.peerCount.innerHTML = peerIds.size;
+    window.peerSize = peerIds.size;
+
+    for(let i = toolbar.children.length - 1; i >= window.peerSize; i--) {
+        toolbar.children[i].classList.remove('unlocked');
+    }
+
+    showSnack('.peerleave');
+});    
+
 
 pen.addEventListener('click', e => {
   if(window.peerSize >= 1) {

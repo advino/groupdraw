@@ -22,7 +22,7 @@ archive.ready(() => {
         pump(socket, archive.replicate(false, {live: true}), socket);
     });
 
-    console.log('Seeding @ ', archive.key.toString('hex'));
+    console.log('Seeding @ hyper://', archive.key.toString('hex'));
 });
 
 function updateArchive(a, d, o) {
